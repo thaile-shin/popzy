@@ -14,11 +14,12 @@
             media="all"
         />
         <link rel="stylesheet" href="./assets/styles.css" media="all" />
-        <link rel="stylesheet" href="./src/popzy.css">
+        <link rel="stylesheet" href="./src/popzy.css" />
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     </head>
     <body>
-        <!-- HEADER -->
+        <div class="wrapper">
+            <!-- HEADER -->
         <header class="header">
             <div class="container">
                 <h1 class="header__title">Popzy.js</h1>
@@ -41,8 +42,7 @@
             <h2 data-bullet="1" class="title" id="try-it-out">Try It Out</h2>
             <p>
                 Popzy is a lightweight <strong>modal library</strong> built with
-                pure JavaScript. (<a
-                    href="https://github.com/thaile-shin/popzy"
+                pure JavaScript. (<a href="https://github.com/thaile-shin/popzy"
                     >Source code available on GitHub</a
                 >)
             </p>
@@ -399,6 +399,7 @@ modal.close();</code></pre>
             </footer>
         </div>
         <!-- /CONTAINER -->
+        </div>
 
         <template id="modal-1">
             <h1>Template Modal 1</h1>
@@ -410,10 +411,21 @@ modal.close();</code></pre>
             hljs.initHighlightingOnLoad();
 
             // Modal samples
+            const modal1Btn = document.querySelector(".js-popzy-modal-1")
             const modal1 = new Popzy({
-                content: "<h1> Title </h1>",
-                templateId: "modal-1",
+                // enableScrollLock: false,
+                content: `
+                <h1> Title </h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                `,
+                // templateId: "modal-1",
+                scrollLockTarget: () => {
+                    return document.querySelector(".wrapper")
+                }
             });
+            modal1Btn.onclick = function () {
+                modal1.open();
+            }
         </script>
     </body>
 </html>
