@@ -18,8 +18,7 @@
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     </head>
     <body>
-        <div class="wrapper">
-            <!-- HEADER -->
+        <!-- HEADER -->
         <header class="header">
             <div class="container">
                 <h1 class="header__title">Popzy.js</h1>
@@ -28,7 +27,7 @@
                     JavaScript.
                 </div>
                 <a
-                    href="https://github.com/thaile-shin/popzy"
+                    href="https://github.com/sondnpt00343/popzy"
                     class="header__github"
                     target="_blank"
                     ><img src="./assets/github.svg" alt="View on GitHub"
@@ -42,7 +41,8 @@
             <h2 data-bullet="1" class="title" id="try-it-out">Try It Out</h2>
             <p>
                 Popzy is a lightweight <strong>modal library</strong> built with
-                pure JavaScript. (<a href="https://github.com/thaile-shin/popzy"
+                pure JavaScript. (<a
+                    href="https://github.com/sondnpt00343/popzy"
                     >Source code available on GitHub</a
                 >)
             </p>
@@ -67,16 +67,16 @@
             <button class="btn btn--secondary btn-demo js-popzy-modal-3">
                 Large Content Modal
             </button>
-            <button class="btn btn--secondary btn-demo js-popzy-modal-5">
+            <button class="btn btn--secondary btn-demo js-popzy-modal-4">
                 Footer-Only Close Modal
             </button>
-            <button class="btn btn--secondary btn-demo js-popzy-modal-6">
+            <button class="btn btn--secondary btn-demo js-popzy-modal-5">
                 Persistent Modal (Stays in DOM)
             </button>
-            <button class="btn btn--secondary btn-demo js-popzy-modal-7">
+            <button class="btn btn--secondary btn-demo js-popzy-modal-6">
                 Multiple Modals
             </button>
-            <button class="btn btn--secondary btn-demo js-popzy-modal-4">
+            <button class="btn btn--secondary btn-demo js-popzy-modal-7">
                 YouTube Embed Modal
             </button>
 
@@ -94,7 +94,7 @@
                     <td>Direct Download</td>
                     <td>
                         <a
-                            href="https://github.com/thaile-shin/popzy/archive/refs/heads/main.zip"
+                            href="https://github.com/sondnpt00343/popzy/archive/master.zip"
                             title="Download Popzy"
                         >
                             Download ZIP
@@ -117,14 +117,14 @@
 
             <pre
                 class="html"
-            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/thaile-shin/popzy/popzy.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/sondnpt00343/popzy@v1.0.1/popzy.min.js&quot;&gt;&lt;/script&gt;</code></pre>
 
             <p>Optionally, include the Popzy CSS file for default styling:</p>
 
             <pre class="html"><code>&lt;link
-    rel=&quot;stylesheet&quot;
-    href=&quot;https://cdn.jsdelivr.net/gh/thaile-shin/popzy/popzy.min.css&quot;
-&gt;</code></pre>
+                rel=&quot;stylesheet&quot;
+                href=&quot;https://cdn.jsdelivr.net/gh/sondnpt00343/popzy@v1.0.1/popzy.min.css&quot;
+            &gt;</code></pre>
 
             <p>
                 You can explore the list of CSS classes used by Popzy in the
@@ -132,40 +132,50 @@
                 as needed.
             </p>
 
+            <blockquote>
+                You can use the
+                <a
+                    href="https://github.com/sondnpt00343/popzy/releases"
+                    target="_blank"
+                    >released</a
+                >
+                versions of Popzy available here.
+            </blockquote>
+
             <h2 data-bullet="3" class="title" id="usage">Usage</h2>
             <pre class="javascript"><code>// Initialize a new modal
-const modal = new Popzy({
-    content: '&lt;h1&gt;This is content&lt;/h1&gt;',
-    // templateId: 'my-modal-template',
-    footer: true,
-    destroyOnClose: false,
-    closeMethods: ['overlay', 'button', 'escape'],
-    cssClass: ['custom-class-1', 'custom-class-2'],
-    onOpen: function() {
-        console.log('Modal opened');
-    },
-    onClose: function() {
-        console.log('Modal closed');
-    },
-});
-
-// Set modal content
-modal.setContent('&lt;h1&gt;This is new content&lt;/h1&gt;');
-
-// Add footer buttons
-modal.addFooterBtn('Cancel', 'btn btn--default', function(e) {
-    modal.close();
-});
-
-modal.addFooterBtn('Confirm', 'btn btn--primary', function(e) {
-    modal.close();
-});
-
-// Open the modal
-modal.open();
-
-// Close the modal
-modal.close();</code></pre>
+            const modal = new Popzy({
+                content: '&lt;h1&gt;This is content&lt;/h1&gt;',
+                // templateId: 'my-modal-template',
+                footer: true,
+                destroyOnClose: false,
+                closeMethods: ['overlay', 'button', 'escape'],
+                cssClass: ['custom-class-1', 'custom-class-2'],
+                onOpen: function() {
+                    console.log('Modal opened');
+                },
+                onClose: function() {
+                    console.log('Modal closed');
+                },
+            });
+            
+            // Set modal content
+            modal.setContent('&lt;h1&gt;This is new content&lt;/h1&gt;');
+            
+            // Add footer buttons
+            modal.addFooterBtn('Cancel', 'btn btn--default', function(e) {
+                modal.close();
+            });
+            
+            modal.addFooterBtn('Confirm', 'btn btn--primary', function(e) {
+                modal.close();
+            });
+            
+            // Open the modal
+            modal.open();
+            
+            // Close the modal
+            modal.close();</code></pre>
 
             <p>
                 If you use <code>templateId</code>, ensure that a
@@ -174,14 +184,14 @@ modal.close();</code></pre>
             </p>
 
             <pre class="html">
-<code>&lt;template id="my-modal-template"&gt;
-    &lt;div&gt;
-        &lt;h1&gt;This is modal content&lt;/h1&gt;
-        &lt;p&gt;You can add any HTML here.&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/template&gt;
-</code>
-</pre>
+            <code>&lt;template id="my-modal-template"&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;This is modal content&lt;/h1&gt;
+                    &lt;p&gt;You can add any HTML here.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+            </code>
+            </pre>
             <p>
                 <strong>Note:</strong> When using <code>templateId</code>, do
                 not provide <code>content</code>. If both are specified,
@@ -211,6 +221,14 @@ modal.close();</code></pre>
                     </td>
                 </tr>
                 <tr>
+                    <td>cssClass</td>
+                    <td>array</td>
+                    <td>
+                        Custom CSS classes applied to the modal container
+                        (default: <code>[]</code>)
+                    </td>
+                </tr>
+                <tr>
                     <td>footer</td>
                     <td>boolean</td>
                     <td>
@@ -235,11 +253,32 @@ modal.close();</code></pre>
                     </td>
                 </tr>
                 <tr>
+                    <td>enableScrollLock</td>
+                    <td>boolean</td>
+                    <td>
+                        Enables or disables scroll locking when the modal is
+                        open. When set to
+                        <code>true</code>, it prevents scrolling on the target
+                        element specified by <code>scrollLockTarget</code>.
+                        Default: <code>true</code>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>scrollLockTarget</td>
+                    <td>function</td>
+                    <td>
+                        A callback that returns the element to apply scroll
+                        locking on. By default, it locks scrolling on
+                        <code>document.body</code>.
+                    </td>
+                </tr>
+                <tr>
                     <td>onOpen</td>
                     <td>function</td>
                     <td>
                         Callback function executed when the modal opens (after
-                        transition ends) (default: <code>undefined</code>)
+                        transition ends) (default:
+                        <code>undefined</code>)
                     </td>
                 </tr>
                 <tr>
@@ -250,22 +289,13 @@ modal.close();</code></pre>
                         (default: <code>undefined</code>)
                     </td>
                 </tr>
-                <tr>
-                    <td>cssClass</td>
-                    <td>array</td>
-                    <td>
-                        Custom CSS classes applied to the modal container
-                        (default: <code>[]</code>)
-                    </td>
-                </tr>
             </table>
 
             <!-- Styling section -->
             <h2 data-bullet="5" class="title" id="styling">Styling</h2>
             <p>
-                Popzy styles are defined in CSS, with some positioning handled
-                by JavaScript. You can fully customize it to meet your design
-                requirements.
+                Popzy styles are defined in CSS. You can fully customize it to
+                meet your design requirements.
             </p>
 
             <table class="methods">
@@ -323,7 +353,9 @@ modal.close();</code></pre>
                     <tr>
                         <td><code>.popzy--no-scroll</code></td>
                         <td>
-                            Disables scrolling on the body when the modal is
+                            Disables scrolling on the target element specified
+                            by
+                            <code>scrollLockTarget</code> when the modal is
                             open.
                         </td>
                     </tr>
@@ -333,7 +365,7 @@ modal.close();</code></pre>
             <p>
                 For more details, you can view the full CSS file directly here:
                 <a
-                    href="https://github.com/thaile-shin/popzy/blob/main/src/popzy.css"
+                    href="https://github.com/sondnpt00343/popzy/blob/main/src/popzy.css"
                     target="_blank"
                     >popzy.css</a
                 >.
@@ -359,26 +391,32 @@ modal.close();</code></pre>
                     <td>close()</td>
                     <td>
                         Closes the modal and triggers the
-                        <code>onClose</code> callback.
+                        <code>onClose</code> callback. If
+                        <code>close(true)</code> is called, it behaves the same
+                        as <code>destroy()</code>, removing the modal from the
+                        DOM.
                     </td>
                 </tr>
                 <tr>
                     <td>setContent(content)</td>
-                    <td>Updates the modal content</td>
+                    <td>Updates the modal content.</td>
                 </tr>
                 <tr>
                     <td>setFooterContent(content)</td>
-                    <td>Updates the footer content</td>
+                    <td>Updates the footer content.</td>
                 </tr>
                 <tr>
                     <td>addFooterBtn(label, cssClass, callback)</td>
                     <td>
-                        Adds a button to the footer with a callback function
+                        Adds a button to the footer with a callback function.
                     </td>
                 </tr>
                 <tr>
                     <td>destroy()</td>
-                    <td>Removes the modal and unbinds all events</td>
+                    <td>
+                        Completely removes the modal elements from the DOM and
+                        unbinds all associated events.
+                    </td>
                 </tr>
             </table>
 
@@ -399,7 +437,6 @@ modal.close();</code></pre>
             </footer>
         </div>
         <!-- /CONTAINER -->
-        </div>
 
         <template id="modal-1">
             <h1>Template Modal 1</h1>
@@ -411,7 +448,7 @@ modal.close();</code></pre>
             hljs.initHighlightingOnLoad();
 
             // Modal samples
-            const modal1Btn = document.querySelector(".js-popzy-modal-1")
+            const modal1Btn = document.querySelector(".js-popzy-modal-1");
             const modal1 = new Popzy({
                 // enableScrollLock: false,
                 content: `
@@ -419,13 +456,13 @@ modal.close();</code></pre>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
                 `,
                 // templateId: "modal-1",
-                scrollLockTarget: () => {
-                    return document.querySelector(".wrapper")
-                }
+                // scrollLockTarget: () => {
+                //     return document.querySelector(".wrapper")
+                // }
             });
             modal1Btn.onclick = function () {
                 modal1.open();
-            }
+            };
         </script>
     </body>
 </html>

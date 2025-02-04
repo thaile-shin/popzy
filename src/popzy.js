@@ -54,7 +54,7 @@ Popzy.prototype._build = function () {
     }
     // Create modal elements
     this._backdrop = document.createElement("div");
-    this._backdrop.className = "popzy__backdrop";
+    this._backdrop.className = "popzy";
 
     const container = document.createElement("div");
     container.className = "popzy__container";
@@ -175,6 +175,11 @@ Popzy.prototype.open = function () {
 };
 
 Popzy.prototype._hasScrollbar = (target) => {
+    if([document.documentElement, document.body].includes(target)) {
+        return document.documentElement.scrollHeight > document.documentElement.clientHeight ||
+        document.body.scrollHeight > document.body.clientHeight;
+    }
+
     return target.scrollHeight > target.clientHeight
 }
 
