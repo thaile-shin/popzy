@@ -27,7 +27,7 @@
                     JavaScript.
                 </div>
                 <a
-                    href="https://github.com/sondnpt00343/popzy"
+                    href="https://github.com/thaile-shin/popzy"
                     class="header__github"
                     target="_blank"
                     ><img src="./assets/github.svg" alt="View on GitHub"
@@ -42,7 +42,7 @@
             <p>
                 Popzy is a lightweight <strong>modal library</strong> built with
                 pure JavaScript. (<a
-                    href="https://github.com/sondnpt00343/popzy"
+                    href="https://github.com/thaile-shin/popzy"
                     >Source code available on GitHub</a
                 >)
             </p>
@@ -94,7 +94,7 @@
                     <td>Direct Download</td>
                     <td>
                         <a
-                            href="https://github.com/sondnpt00343/popzy/archive/master.zip"
+                            href="https://github.com/thaile-shin/popzy/archive/refs/heads/main.zip"
                             title="Download Popzy"
                         >
                             Download ZIP
@@ -117,13 +117,13 @@
 
             <pre
                 class="html"
-            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/sondnpt00343/popzy@v1.0.1/popzy.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/thaile-shin/popzy@v1.0.0/popzy.min.js&quot;&gt;&lt;/script&gt;</code></pre>
 
             <p>Optionally, include the Popzy CSS file for default styling:</p>
 
             <pre class="html"><code>&lt;link
                 rel=&quot;stylesheet&quot;
-                href=&quot;https://cdn.jsdelivr.net/gh/sondnpt00343/popzy@v1.0.1/popzy.min.css&quot;
+                href=&quot;https://cdn.jsdelivr.net/gh/thaile-shin/popzy@v1.0.0/popzy.min.css&quot;
             &gt;</code></pre>
 
             <p>
@@ -135,7 +135,7 @@
             <blockquote>
                 You can use the
                 <a
-                    href="https://github.com/sondnpt00343/popzy/releases"
+                    href="https://github.com/thaile-shin/popzy/releases/tag/v1.0.0"
                     target="_blank"
                     >released</a
                 >
@@ -365,7 +365,7 @@
             <p>
                 For more details, you can view the full CSS file directly here:
                 <a
-                    href="https://github.com/sondnpt00343/popzy/blob/main/src/popzy.css"
+                    href="https://github.com/thaile-shin/popzy/blob/main/src/popzy.css
                     target="_blank"
                     >popzy.css</a
                 >.
@@ -448,6 +448,8 @@
             hljs.initHighlightingOnLoad();
 
             // Modal samples
+
+            // Basic modal
             const modal1Btn = document.querySelector(".js-popzy-modal-1");
             const modal1 = new Popzy({
                 // enableScrollLock: false,
@@ -462,6 +464,103 @@
             });
             modal1Btn.onclick = function () {
                 modal1.open();
+            };
+
+            // Modal with Buttons
+            const modal2Btn = document.querySelector(".js-popzy-modal-2");
+            const modal2 = new Popzy({
+                content: `
+                <h1> Modal with Buttons </h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                `,
+                footer: true,
+
+            });
+            modal2.addFooterBtn('Cancel','modal-btn', () => {
+                modal2.close();
+            });
+            modal2.addFooterBtn('Confirm','modal-btn primary', () => {
+                console.log("Something...");
+                modal2.close();
+            });
+            modal2Btn.onclick = function () {
+                modal2.open();
+            };
+
+            // Large Content Modal
+            const modal3Btn = document.querySelector(".js-popzy-modal-3");
+            const modal3 = new Popzy({
+                content: `
+                <h1> Large Content Modal </h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                `,
+            });
+            modal3Btn.onclick = function () {
+                modal3.open();
+            };
+
+            // Footer-Only Close Modal
+            const modal4Btn = document.querySelector(".js-popzy-modal-4");
+            const modal4 = new Popzy({
+                content: `
+                <h1> Footer-Only Close Modal </h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                `,
+                footer: true,
+                closeMethods: [],
+            });
+            modal4.addFooterBtn('Close', 'modal-btn', () => {
+                modal4.close();
+            })
+            modal4Btn.onclick = function () {
+                modal4.open();
+            };
+
+            // Persistent Modal (Stay in DOM)
+            const modal5Btn = document.querySelector(".js-popzy-modal-5");
+            const modal5 = new Popzy({
+                content: `
+                <h1> Persistent Modal (Stay in DOM) </h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                `,
+                destroyOnClose: false,
+            });
+            modal5Btn.onclick = function () {
+                modal5.open();
+            };
+
+            // Multiple Modals
+            const modal6Btn = document.querySelector(".js-popzy-modal-6");
+            const modal6 = new Popzy({
+                content: `
+                <h1> Multiple Modals </h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum obcaecati aliquid similique labore nam molestiae architecto sapiente maxime. A, deserunt?</p>
+                <button class ="btn" onclick = "modal1.open();"> Open Basic Modal </button>
+                `,
+                destroyOnClose: false,
+            });
+            modal6Btn.onclick = function () {
+                modal6.open();
+            };
+            
+            // Youtube Embed Modal
+            const modal7Btn = document.querySelector(".js-popzy-modal-7");
+            const modal7 = new Popzy({
+                content: `<iframe width="560" height="315" src="https://www.youtube.com/embed/dLmczwDCEZI?si=qUzhYyAh73BIKtpU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+                destroyOnClose: false,
+            });
+            modal7Btn.onclick = function () {
+                modal7.open();
             };
         </script>
     </body>

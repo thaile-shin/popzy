@@ -51,6 +51,7 @@
 }
 
 .popzy__content {
+    margin: 24px 8px;
     max-height: 80vh;
     overflow-y: auto;
 }

@@ -208,6 +208,29 @@ code:not(.hljs) {
     text-decoration: underline;
 }
 
+blockquote {
+    padding-left: 20px;
+    border-left: 3px solid var(--primary);
+    opacity: 0.8;
+    font-style: italic;
+}
+.modal-btn {
+    padding: 8px 20px;
+    color: #fff;
+    background: #34495e;
+    border: none;
+    cursor: pointer;
+}
+.modal-btn.primary {
+    background: #3498db;
+}
+.modal-btn.danger {
+    background: #e74c3c;
+}
+.modal-btn.pull-left {
+    margin-right: auto;
+}
+
 .container {
     margin-right: auto;
     margin-left: auto;
